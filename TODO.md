@@ -1,28 +1,37 @@
 # NexusIPTV Roadmap
 
-Development work is tracked through GitHub Issues.
+Development work is tracked through [GitHub Issues](https://github.com/M0RPH10U5/NexusIPTV/issues).
 
-## Current Focus
+## v0.1 — Foundation
 
 ### Playlist & EPG
 
-- Add remote playlist support
-- Add remote EPG support
-
-### Playback
-
-- Establish playback state management
-- Improve playback failure handling
-- Add loading/buffering feedback
-- Add playback retry
+- Add remote M3U/M3U8 playlist support — #1
+- Add remote XMLTV EPG support — #2
 
 ### Application
 
-- Persist settings
-- Remember last channel
-- Fix maximized window/taskbar behavior
+- Persist application settings — #3
+- Fix maximized window covering the Windows taskbar — #4
+- Remember last played channel — #7
 
-### UI Polish
+### Playback
 
-- Add now-playing information
-- Add previous/next channel shortcuts
+- Establish playback state management — #5
+- Improve playback robustness and failure handling — #6
+- Add loading and buffering indicator — #8
+- Add playback retry button — #10
+
+### EPG & Information
+
+- Add now-playing information — #9
+
+### Navigation
+
+- Add previous/next channel shortcuts — #11
+
+---
+
+## Future Development
+
+Additional features and improvements will be tracked through GitHub Issues as the project evolves.
