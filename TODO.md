@@ -6,7 +6,7 @@ Development work is tracked through [GitHub Issues](https://github.com/M0RPH10U5
 
 ### Playlist & EPG
 
-- Add remote M3U/M3U8 playlist support — #1
+- Add remote M3U/M3U8 playlist support #1
 - Add remote XMLTV EPG support — #2
 
 ### Application
