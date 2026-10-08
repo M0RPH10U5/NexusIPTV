@@ -2,7 +2,7 @@
 
 Development work is tracked through [GitHub Issues](https://github.com/M0RPH10U5/NexusIPTV/issues).
 
-## v0.1 — Foundation
+## v1.0.0 — Foundation
 
 ### Playlist & EPG
 
