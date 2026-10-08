@@ -1,0 +1,269 @@
+﻿<Window x:Class="NexusIPTV.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:NexusIPTV.App.Views"
+        xmlns:lvs="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
+        Title="VLC IPTV"
+        Height="760"
+        Width="1200"
+        MinHeight="600"
+        MinWidth="900"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Border Background="{DynamicResource AppBackgroundBrush}"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="8">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="TitleBar"
+                    Grid.Row="0"
+                    Background="{DynamicResource TitleBarBrush}"
+                    CornerRadius="7,7,0,0"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+
+                <Grid>
+
+                    <TextBlock Text="Nexus IPTV | v1.0.0"
+                               Margin="16,0,0,0"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource PrimaryTextBrush}"/>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+
+                        <Button x:Name="MinimizeButton"
+                                Content="🗕"
+                                Style="{DynamicResource TitleBarButtonStyle}"
+                                Click="MinimizeButton_Click"
+                                ToolTip="Minimize"/>
+
+                        <Button x:Name="MaximizeButton"
+                                Content="🗖"
+                                Style="{DynamicResource TitleBarButtonStyle}"
+                                Click="MaximizeButton_Click"
+                                ToolTip="Maximize"/>
+
+                        <Button x:Name="CloseButton"
+                                Content="🗙"
+                                Style="{DynamicResource CloseButtonStyle}"
+                                Click="CloseButton_Click"
+                                ToolTip="Close"/>
+
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Background="{DynamicResource SurfaceBrush}"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="0,0,0,1">
+
+                    <Grid Margin="20,0">
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock Text="Channels"
+                                       VerticalAlignment="Center"
+                                       FontSize="24"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource PrimaryTextBrush}"/>
+
+                            <TextBlock x:Name="ChannelCountText"
+                                       Text="0 channels"
+                                       Margin="14,5,0,0"
+                                       VerticalAlignment="Center"
+                                       FontSize="13"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"/>
+
+                        </StackPanel>
+
+                        <Button Content="Settings"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Click="SettingsButton_Click"/>
+
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0"
+                          Margin="12">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="52"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border x:Name="PlayerBorder"
+                                Grid.Row="0"
+                                Background="Black"
+                                CornerRadius="6"
+                                ClipToBounds="True">
+
+                            <Grid>
+
+                                <lvs:VideoView x:Name="VideoView"
+                                               HorizontalAlignment="Stretch"
+                                               VerticalAlignment="Stretch"/>
+
+                                <TextBlock x:Name="PlayerEmptyText"
+                                           Text="Select a channel to begin playback"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="18"
+                                           Foreground="White"
+                                           Opacity="0.7"
+                                           IsHitTestVisible="False"/>
+
+                            </Grid>
+
+                        </Border>
+
+                        <Border Grid.Row="1"
+                                Margin="0,8,0,0"
+                                Background="{DynamicResource SurfaceAltBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6">
+
+                            <Grid Margin="10,0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button x:Name="PlayPauseButton"
+                                        Grid.Column="0"
+                                        Content="Play"
+                                        Width="76"
+                                        MinHeight="34"
+                                        Padding="10,4"
+                                        Margin="0,6,6,6"
+                                        VerticalAlignment="Center"
+                                        Click="PlayPauseButton_Click"/>
+
+                                <Button Grid.Column="1"
+                                        Content="Stop"
+                                        Width="66"
+                                        MinHeight="34"
+                                        Padding="10,4"
+                                        Margin="0,6,6,6"
+                                        VerticalAlignment="Center"
+                                        Click="StopButton_Click"/>
+
+                                <Button x:Name="MuteButton"
+                                        Grid.Column="2"
+                                        Content="Mute"
+                                        Width="66"
+                                        MinHeight="34"
+                                        Padding="10,4"
+                                        Margin="0,6,12,6"
+                                        VerticalAlignment="Center"
+                                        Click="MuteButton_Click"/>
+
+                                <Slider x:Name="VolumeSlider"
+                                        Grid.Column="3"
+                                        Minimum="0"
+                                        Maximum="100"
+                                        Value="100"
+                                        Width="140"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        ValueChanged="VolumeSlider_ValueChanged"/>
+
+                                <TextBlock x:Name="PlaybackTimeText"
+                                           Grid.Column="4"
+                                           VerticalAlignment="Center"
+                                           Margin="12,0"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           Text="--:-- / --:--"/>
+
+                                <Button x:Name="FullscreenButton"
+                                        Grid.Column="5"
+                                        Content="Fullscreen"
+                                        MinHeight="34"
+                                        Padding="12,4"
+                                        Margin="6,6,0,6"
+                                        VerticalAlignment="Center"
+                                        Click="FullscreenButton_Click"/>
+
+                            </Grid>
+                        </Border>
+
+                        <ProgressBar x:Name="PlaybackProgressBar"
+                                     Grid.Row="2"
+                                     Height="5"
+                                     Margin="2,6,2,6"
+                                     Minimum="0"
+                                     Maximum="100"
+                                     Value="0"
+                                     VerticalAlignment="Center"/>
+
+                        <Border Grid.Row="3"
+                                Margin="0,2,0,0"
+                                Background="{DynamicResource SurfaceBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                ClipToBounds="True">
+
+                            <views:GuideView x:Name="EpgView"/>
+
+                        </Border>
+
+                    </Grid>
+
+                    <Border Grid.Column="1"
+                            Margin="0,12,12,12"
+                            Background="{DynamicResource SurfaceBrush}"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="6"
+                            ClipToBounds="True">
+
+                        <views:ChannelView x:Name="ChannelView"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+</Window>

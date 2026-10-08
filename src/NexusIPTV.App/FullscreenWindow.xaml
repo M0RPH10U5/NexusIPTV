@@ -1,0 +1,36 @@
+﻿<Window x:Class="NexusIPTV.App.FullscreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvs="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        WindowStartupLocation="Manual"
+        ShowInTaskbar="False"
+        Topmost="True"
+        Background="Black"
+        KeyDown="FullscreenWindow_KeyDown">
+
+    <Grid Background="Black">
+
+        <lvs:VideoView x:Name="FullscreenVideoView"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"/>
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="16"
+                Padding="10,6"
+                Background="#99000000"
+                CornerRadius="4">
+
+            <TextBlock Text="ESC  Exit Fullscreen"
+                       Foreground="White"
+                       FontSize="48"
+                       Opacity="0.75"/>
+
+        </Border>
+
+    </Grid>
+
+</Window>

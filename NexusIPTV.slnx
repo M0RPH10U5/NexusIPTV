@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NexusIPTV.App/NexusIPTV.App.csproj" />
+    <Project Path="src/NexusIPTV.Core/NexusIPTV.Core.csproj" />
+    <Project Path="src/NexusIPTV.Vlc/NexusIPTV.Vlc.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NexusIPTV.Tests/NexusIPTV.Tests.csproj" />
+  </Folder>
+</Solution>

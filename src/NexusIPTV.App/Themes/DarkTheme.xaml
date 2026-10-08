@@ -1,0 +1,284 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Application colors -->
+    <SolidColorBrush x:Key="AppBackgroundBrush"
+                     Color="{StaticResource DarkBackgroundColor}" />
+
+    <SolidColorBrush x:Key="SurfaceBrush"
+                     Color="{StaticResource DarkSurfaceColor}" />
+
+    <SolidColorBrush x:Key="SurfaceAltBrush"
+                     Color="{StaticResource DarkSurfaceAltColor}" />
+
+    <SolidColorBrush x:Key="BorderBrush"
+                     Color="{StaticResource DarkBorderColor}" />
+
+    <SolidColorBrush x:Key="PrimaryTextBrush"
+                     Color="{StaticResource DarkTextColor}" />
+
+    <SolidColorBrush x:Key="SecondaryTextBrush"
+                     Color="{StaticResource DarkSecondaryTextColor}" />
+
+    <!-- Accent is still available for controls that specifically need it -->
+    <SolidColorBrush x:Key="AccentBrush"
+                     Color="{StaticResource AccentColor}" />
+
+    <SolidColorBrush x:Key="AccentHoverBrush"
+                     Color="{StaticResource AccentHoverColor}" />
+
+
+    <!-- Title bar -->
+    <SolidColorBrush x:Key="TitleBarBrush"
+                     Color="#0B0C0F" />
+
+    <SolidColorBrush x:Key="TitleBarHoverBrush"
+                     Color="#181B20" />
+
+    <SolidColorBrush x:Key="TitleBarPressedBrush"
+                     Color="#22262C" />
+
+
+    <!-- Normal application buttons -->
+    <SolidColorBrush x:Key="ButtonBrush"
+                     Color="#0B0C0F" />
+
+    <SolidColorBrush x:Key="ButtonHoverBrush"
+                     Color="#181B20" />
+
+    <SolidColorBrush x:Key="ButtonPressedBrush"
+                     Color="#22262C" />
+
+
+    <!-- Window -->
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="Background"
+                Value="{StaticResource AppBackgroundBrush}" />
+
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryTextBrush}" />
+    </Style>
+
+
+    <!-- Text -->
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryTextBrush}" />
+    </Style>
+
+
+    <!-- Normal buttons -->
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryTextBrush}" />
+
+        <Setter Property="Background"
+                Value="{StaticResource ButtonBrush}" />
+
+        <Setter Property="BorderBrush"
+                Value="{StaticResource BorderBrush}" />
+
+        <Setter Property="BorderThickness"
+                Value="1" />
+
+        <Setter Property="Padding"
+                Value="12,7" />
+
+        <Setter Property="Margin"
+                Value="2" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border x:Name="ButtonBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="{TemplateBinding Padding}" />
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource ButtonHoverBrush}" />
+
+                        </Trigger>
+
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource ButtonPressedBrush}" />
+
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+
+                            <Setter Property="Opacity"
+                                    Value="0.5" />
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+
+    <!-- Title bar buttons -->
+    <Style x:Key="TitleBarButtonStyle"
+           TargetType="Button">
+
+        <Setter Property="Width"
+                Value="46" />
+
+        <Setter Property="Height"
+                Value="42" />
+
+        <Setter Property="Padding"
+                Value="0" />
+
+        <Setter Property="Margin"
+                Value="0" />
+
+        <Setter Property="BorderThickness"
+                Value="0" />
+
+        <Setter Property="Background"
+                Value="Transparent" />
+
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Setter Property="FontSize"
+                Value="16" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border x:Name="ButtonBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="{TemplateBinding Padding}" />
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource TitleBarHoverBrush}" />
+
+                        </Trigger>
+
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource TitleBarPressedBrush}" />
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+
+    <!-- Close button -->
+    <Style x:Key="CloseButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource TitleBarButtonStyle}">
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <Border x:Name="ButtonBorder"
+                            Background="Transparent"
+                            CornerRadius="4">
+
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="#C42828" />
+
+                            <Setter Property="Foreground"
+                                    Value="White" />
+
+                        </Trigger>
+
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+
+                            <Setter TargetName="ButtonBorder"
+                                    Property="Background"
+                                    Value="#9E1F1F" />
+
+                            <Setter Property="Foreground"
+                                    Value="White" />
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>
