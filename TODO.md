@@ -1,11 +1,28 @@
-* [ ] Add URL support for both Playlist and EPG
-* [ ] Make Settings Persistent
-* [ ] Fix the app covering the taskbar when maximized
-* [ ] Playback Robustness
-* [ ] Playback Failure Handling
-* [ ] Remember Last Channel
-* Polish
-  * [ ] Loading/Buffering Indicator
-  * [ ] Now Playing Information
-  * [ ] Retry Button
-  * [ ] Possible Previous/Next Channel Shortcuts
+# NexusIPTV Roadmap
+
+Development work is tracked through GitHub Issues.
+
+## Current Focus
+
+### Playlist & EPG
+
+- Add remote playlist support
+- Add remote EPG support
+
+### Playback
+
+- Establish playback state management
+- Improve playback failure handling
+- Add loading/buffering feedback
+- Add playback retry
+
+### Application
+
+- Persist settings
+- Remember last channel
+- Fix maximized window/taskbar behavior
+
+### UI Polish
+
+- Add now-playing information
+- Add previous/next channel shortcuts
